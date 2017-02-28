@@ -1,0 +1,25 @@
+<h1>New comment</h1>
+
+<%= form_for([@post, Comment.new]) do |f| %>
+   <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+   
+   <h5>Puneet </h5>
+    <%= f.label :commenter %>
+    <%= f.text_field :commenter %>
+   <%= f.label :body %>
+    <%= f.text_area :body %>
+ <%= f.submit "Create" %>
+  
+
+<% end %>
+<%= link_to 'Back', post_comments_path(@post) %>
